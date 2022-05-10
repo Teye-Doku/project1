@@ -1,0 +1,11 @@
+name: release
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout out source code
+        uses: actions/checkout@v3
+      - run: docker build -t project1/courageabam .
+      - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+      - run: docker push project1/courageabam  
