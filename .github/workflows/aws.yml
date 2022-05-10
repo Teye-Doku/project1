@@ -2,7 +2,7 @@ name: project-workflow
 on: [push]
 jobs:
   project-one-job:
-  runs-on:  ubuntu-latest
+  runs-on: ubuntu-latest
   steps:
     - name: checkout projectone source code
       uses: actions/checkout@v3
